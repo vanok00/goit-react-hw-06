@@ -1,9 +1,7 @@
-import { useEffect, useState } from "react";
 import ContactForm from "../ContactForm/ContactForm.jsx";
 import ContactList from "../ContactList/ContactList.jsx";
 import SearchBox from "../SearchBox/SearchBox.jsx";
 import styles from "./App.module.css";
-import { useSelector } from "react-redux";
 
 export default function App() {
   const InContacts = [
@@ -13,35 +11,12 @@ export default function App() {
     { id: "id-4", name: "Annie Copeland", number: "227-91-26" },
   ];
 
-  const [contacts, setContacts] = useState(() => {
-    const savedContacts = localStorage.getItem("contacts");
-    return savedContacts ? JSON.parse(savedContacts) : InContacts;
-  });
-  const [searchValue, setSearchValue] = useState("");
-
-  const filtredContacts = contacts.filter((contact) => {
-    return (
-      contact.name &&
-      contact.name.toLowerCase().includes(searchValue.toLowerCase())
-    );
-  });
-
-  const handleAddContacts = () => {};
-  const handleDeleteContacts = () => {};
-
-  useEffect(() => {
-    localStorage.setItem("contacts", JSON.stringify(contacts));
-  }, [contacts]);
-
   return (
     <div>
       <h1 className={styles.book}>Phonebook</h1>
-      <ContactForm handleAddContacts={handleAddContacts} />
-      <SearchBox value={searchValue} setValue={setSearchValue} />
-      <ContactList
-        contacts={filtredContacts}
-        handleDeleteContacts={handleDeleteContacts}
-      />
+      <ContactForm InContacts={InContacts} />
+      <SearchBox />
+      <ContactList />
     </div>
   );
 }
