@@ -3,6 +3,7 @@ import ContactForm from "../ContactForm/ContactForm.jsx";
 import ContactList from "../ContactList/ContactList.jsx";
 import SearchBox from "../SearchBox/SearchBox.jsx";
 import styles from "./App.module.css";
+import { useSelector } from "react-redux";
 
 export default function App() {
   const InContacts = [
@@ -25,17 +26,8 @@ export default function App() {
     );
   });
 
-  const handleAddContacts = (newContact) => {
-    setContacts((prevContacts) => {
-      return [...prevContacts, newContact];
-    });
-  };
-
-  const handleDeleteContacts = (contactId) => {
-    setContacts((prevContacts) =>
-      prevContacts.filter((contact) => contact.id !== contactId)
-    );
-  };
+  const handleAddContacts = () => {};
+  const handleDeleteContacts = () => {};
 
   useEffect(() => {
     localStorage.setItem("contacts", JSON.stringify(contacts));
