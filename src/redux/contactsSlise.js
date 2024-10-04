@@ -1,7 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit"
 
 const initialState =  {
-    contacts: [],
+    contacts: [{items: 'Hello world', id: 1}],
+    searchStr: '',
       };
 
 
@@ -23,6 +24,7 @@ export const selectContacts = state => state.contacts.contacts
   export const contactReducer = slice.reducer
 
   export const {deleteContact, addContact} = slice.actions
+
 
 
 
