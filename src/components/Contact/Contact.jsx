@@ -5,7 +5,6 @@ import { useDispatch } from "react-redux";
 import { deleteContact } from "../../redux/contactsSlise";
 export default function Contact({ contact }) {
   const dispatch = useDispatch();
-
   return (
     <div className={styles.contactLi}>
       <div className={styles.nameNumbs}>
