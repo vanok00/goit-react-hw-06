@@ -3,7 +3,7 @@ import styles from "./ContactForm.module.css";
 import { nanoid } from "nanoid";
 import * as Yup from "yup";
 import { useDispatch } from "react-redux";
-import { addContact } from "../../redux/contactsSlise";
+import { addContact } from "../../redux/contactsSliсe";
 
 const ContactForm = () => {
   const initialValues = {
